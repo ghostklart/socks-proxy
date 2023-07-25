@@ -1,0 +1,17 @@
+---
+version: "3.9"
+services:
+  tubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghostklart/danted:arm
+    container_name: danted
+    hostname: danted
+    volumes:
+      - ./danted.conf:/etc/danted.conf
+    env_file:
+      - danted.env
+    ports:
+      - 1080:1080
+    restart: unless-stopped
